@@ -25,4 +25,4 @@ self_test() {
     assert::eq ${CONSTANT_PI} '3.141592'
 }
 
-cli::load "$@"
+cli::main "$@"
