@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-source $(cli loader)
+source $(cli loader ---exports)
 
 help() {
     cat << EOF
@@ -12,7 +12,7 @@ Global Arguments
 EOF
 }
 
-export() {
+main() {
     CONSTANT_PI='3.141592'
 
     cli::export constant
@@ -20,7 +20,7 @@ export() {
 
 self_test() { 
     source /dev/stdin < <(main)
-    source /dev/stdin < <(cli::import cli_assert)
+    source /dev/stdin < <(cli::import cli-assert)
 
     assert::eq ${CONSTANT_PI} '3.141592'
 }
